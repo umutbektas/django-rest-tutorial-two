@@ -6,12 +6,14 @@ from rest_framework.generics import get_object_or_404
 from .permissions import IsAdminUserOrReadOnly, IsReviewAuthorOrReadOnly
 from ..models import Ebook, Review
 from .serializers import EbookSerializer, ReviewSerializer
+from .pagination import SmallSetPagination
 
 
 class EbookListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Ebook.objects.all()
+    queryset = Ebook.objects.all().order_by("-id")
     serializer_class = EbookSerializer
     permission_classes = [IsAdminUserOrReadOnly]
+    pagination_class = SmallSetPagination
 
 
 class EbookDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
