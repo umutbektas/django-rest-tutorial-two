@@ -4,7 +4,7 @@ defusedxml==0.6.0
 django>=2.2.4
 django-allauth==0.39.1
 django-rest-auth==0.9.5
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 idna==2.8
 mysqlclient==1.4.2
 oauthlib==3.0.1
